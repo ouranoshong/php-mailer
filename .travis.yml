@@ -8,7 +8,7 @@ cache:
     - vendor
 
 php:
-  - 7.4
+  - 7.4.7
   - hhvm
 
 # We only build pushes to master and pull requests
