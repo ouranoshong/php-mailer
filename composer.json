@@ -24,8 +24,6 @@
   },
   "require-dev": {
         "squizlabs/php_codesniffer": "^3.5",
-        "phpunit/phpunit": "^9.2",
-        "thefox/smtpd": "^0.7.0",
-        "monolog/monolog": "^2.1"
+        "phpunit/phpunit": "^9.2"
     }
 }
