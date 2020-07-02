@@ -1,0 +1,11 @@
+To: to <to@example.com>, <to1@example.com>
+Subject: subject
+MessagePart-ID: 1234567
+X-Mailer: PHP/7.4.7
+MIME-Version: 1.0
+From: from <from@example.com>
+Reply-To: from <from@example.com>
+Date: Tue, 30 Jun 2020 10:29:32 +0000
+Priority: normal
+X-Test: test
+Content-Type: multipart/mixed; boundary="d6cac6b0ea5c7b995176f68e6384201f"

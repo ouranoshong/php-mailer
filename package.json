@@ -1,0 +1,19 @@
+{
+  "name": "php-mailer",
+  "version": "0.0.1",
+  "description": "just for test",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "proxy-test-server": "^1.0.0",
+    "smtp-server": "^3.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ouranoshong@outlook.com",
+  "license": "MIT"
+}

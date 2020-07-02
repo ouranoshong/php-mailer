@@ -1,0 +1,11 @@
+To: =?UTF-8?B?5pS25Lu25Lq6?= <to@example.com>
+Subject: =?UTF-8?B?6YKu5Lu25qCH6aKY?=
+MessagePart-ID: 1234567
+X-Mailer: PHP/7.4.7
+MIME-Version: 1.0
+From: =?UTF-8?B?5Y+R5Lu25Lq6?= <from@example.com>
+Reply-To: from@example.com
+Date: Wed, 01 Jul 2020 07:40:55 +0000
+Priority: normal
+X-Test: test
+Content-Type: multipart/mixed; boundary="9a5d648196dc8b0801c20f427dee9645"

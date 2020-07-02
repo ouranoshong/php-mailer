@@ -1,0 +1,31 @@
+{
+    "name": "ouranoshong/php-mailer",
+    "description": "smtp mailer sender via http proxy",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ouranoshong",
+            "email": "ouranoshong@outlook.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4"
+    },
+  	"autoload": {
+	  "psr-4": {
+		"Ouranoshong\\Mailer\\": "src"
+	  }
+	},
+  "autoload-dev": {
+    "psr-4": {
+      "Ouranoshong\\Tests\\Mailer\\": "tests"
+    }
+  },
+  "require-dev": {
+        "squizlabs/php_codesniffer": "^3.5",
+        "phpunit/phpunit": "^9.2",
+        "thefox/smtpd": "^0.7.0",
+        "monolog/monolog": "^2.1"
+    }
+}

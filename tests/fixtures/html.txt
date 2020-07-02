@@ -1,0 +1,8 @@
+To: <to@example.com>
+Subject: subject
+X-Mailer: PHP/7.4.7
+MIME-Version: 1.0
+From: <from@example.com>
+Reply-To: <from@example.com>
+Date: Tue, 30 Jun 2020 06:26:07 +0000
+Content-Type: text/html; charset="UTF-8"

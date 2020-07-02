@@ -1,0 +1,8 @@
+root = true
+
+[{*.php,*.js}]
+end_of_line = lf
+indent_size = 4
+indent_style = space
+tab_width = 4
+insert_final_newline = true

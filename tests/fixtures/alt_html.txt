@@ -1,0 +1,20 @@
+To: <to@example.com>
+Subject: subject
+X-Mailer: PHP/7.4.7
+MIME-Version: 1.0
+From: <from@example.com>
+Reply-To: <from@example.com>
+Date: Tue, 30 Jun 2020 06:26:07 +0000
+Content-Type: multipart/alternative; format=flowed; delsp=yes; boundary="1234"--1234
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+
+aHRtbCBpbWFnZSA=
+
+--1234
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: base64
+
+PHA+aHRtbCBpbWFnZSA8aW1nIHNyYz0idGVzdC5qcGVnIiAvPjwvcD4=
+
+--1234--
