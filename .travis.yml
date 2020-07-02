@@ -31,9 +31,9 @@ install:
 
 before_script:
   - node ./tests/server/http_proxy_server.js &
-  - node ./tests/server/server.js &
-  - node ./tests/server/starttls_server.js &
-  - node ./tests/server/no_ssl_server.js &
+  - sudo node ./tests/server/server.js &
+  - sudo node ./tests/server/starttls_server.js &
+  - sudo node ./tests/server/no_ssl_server.js &
 
 script:
   - ./vendor/bin/phpunit -c phpunit.xml.dist --coverage-clover build/logs/clover.xml
