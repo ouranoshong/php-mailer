@@ -9,7 +9,7 @@ cache:
 
 php:
   - 7.4
-  - hvvm
+  - hhvm
 
 # We only build pushes to master and pull requests
 branches:
