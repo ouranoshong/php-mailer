@@ -39,4 +39,4 @@ script:
 
 after_success:
   - travis_retry wget https://github.com/php-coveralls/php-coveralls/releases/download/v2.2.0/php-coveralls.phar
-  - travis_retry php coveralls.phar -v
+  - travis_retry php php-coveralls.phar -v
