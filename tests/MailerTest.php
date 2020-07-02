@@ -19,6 +19,7 @@ class MailerTest extends TestCase
         $transport = $this->createMock(TransportInterface::class);
         $transport->expects($this->once())->method('send')->willReturn(true);
         $mailer = new Mailer($transport);
+        $mailer->setXMailer('PHP/7.4.7');
         $mailer->setFrom('from@example.com', 'from');
         $mailer->setTo('to@example.com', 'to');
         $mailer->setSubject('subject');
@@ -32,6 +33,7 @@ class MailerTest extends TestCase
         $transport = $this->createMock(TransportInterface::class);
         $transport->expects($this->never())->method('send')->willReturn(true);
         $mailer = new Mailer($transport);
+        $mailer->setXMailer('PHP/7.4.7');
         $mailer->setFrom('');
         $mailer->setTo('to@example.com');
         $mailer->setSubject('subject');
@@ -45,6 +47,7 @@ class MailerTest extends TestCase
         $transport = $this->createMock(TransportInterface::class);
         $transport->expects($this->never())->method('send')->willReturn(true);
         $mailer = new Mailer($transport);
+        $mailer->setXMailer('PHP/7.4.7');
         $mailer->setFrom('from@example.com');
         $mailer->setTo('');
         $mailer->setSubject('subject');
@@ -58,6 +61,7 @@ class MailerTest extends TestCase
         $transport = $this->createMock(TransportInterface::class);
         $transport->expects($this->never())->method('send')->willReturn(true);
         $mailer = new Mailer($transport);
+        $mailer->setXMailer('PHP/7.4.7');
         $mailer->setFrom('from@example.com');
         $mailer->setTo('to@example.com');
         $mailer->setSubject('');
@@ -71,6 +75,7 @@ class MailerTest extends TestCase
         $transport = $this->createMock(TransportInterface::class);
         $transport->expects($this->never())->method('send')->willReturn(true);
         $mailer = new Mailer($transport);
+        $mailer->setXMailer('PHP/7.4.7');
         $mailer->setFrom('from@example.com');
         $mailer->setTo('to@example.com');
         $mailer->setSubject('subject');
@@ -84,6 +89,7 @@ class MailerTest extends TestCase
         $transport = $this->createMock(TransportInterface::class);
         $transport->expects($this->never())->method('send')->willReturn(true);
         $mailer = new Mailer($transport);
+        $mailer->setXMailer('PHP/7.4.7');
         $mailer->setFrom('from@example.com');
         $mailer->setTo('to@example.com');
         $mailer->setSubject('subject');
@@ -96,6 +102,7 @@ class MailerTest extends TestCase
     {
         $transport = $this->createMock(TransportInterface::class);
         $mailer = new Mailer($transport);
+        $mailer->setXMailer('PHP/7.4.7');
         $mailer->setFrom('from@example.com');
         $mailer->setTo('to@example.com');
         $mailer->setSubject('subject');
@@ -116,6 +123,7 @@ class MailerTest extends TestCase
     {
         $transport = $this->createMock(TransportInterface::class);
         $mailer = new Mailer($transport);
+        $mailer->setXMailer('PHP/7.4.7');
         $mailer->setFrom('from@example.com');
         $mailer->setTo('to@example.com');
         $mailer->setSubject('subject');
@@ -135,6 +143,7 @@ class MailerTest extends TestCase
     {
         $mailer = $this->createPartialMock(Mailer::class, ['genBoundaryId']);
         $mailer->method('genBoundaryId')->willReturn('1234');
+        $mailer->setXMailer('PHP/7.4.7');
         $mailer->setFrom('from@example.com');
         $mailer->setTo('to@example.com');
         $mailer->setSubject('subject');
@@ -153,6 +162,7 @@ class MailerTest extends TestCase
     {
         $mailer = $this->createPartialMock(Mailer::class, ['genBoundaryId']);
         $mailer->method('genBoundaryId')->willReturn('1234');
+        $mailer->setXMailer('PHP/7.4.7');
         $mailer->setFrom('from@example.com');
         $mailer->setTo('to@example.com');
         $mailer->setSubject('subject');
@@ -171,6 +181,7 @@ class MailerTest extends TestCase
     {
         $mailer = $this->createPartialMock(Mailer::class, ['genBoundaryId']);
         $mailer->method('genBoundaryId')->willReturn('1234');
+        $mailer->setXMailer('PHP/7.4.7');
         $mailer->setFrom('from@example.com');
         $mailer->setTo('to@example.com');
         $mailer->setSubject('subject');
@@ -189,6 +200,7 @@ class MailerTest extends TestCase
     {
         $mailer = $this->createPartialMock(Mailer::class, ['genBoundaryId']);
         $mailer->method('genBoundaryId')->willReturn('1234');
+        $mailer->setXMailer('PHP/7.4.7');
         $mailer->setFrom('from@example.com');
         $mailer->setTo('to@example.com');
         $mailer->setSubject('subject');
@@ -207,6 +219,7 @@ class MailerTest extends TestCase
     {
         $mailer = $this->createPartialMock(Mailer::class, ['genBoundaryId']);
         $mailer->method('genBoundaryId')->willReturn('1234');
+        $mailer->setXMailer('PHP/7.4.7');
         $mailer->setFrom('from@example.com');
         $mailer->setTo('to@example.com');
         $mailer->setSubject('subject');
@@ -225,7 +238,7 @@ class MailerTest extends TestCase
         $mailer = $this->createPartialMock(Mailer::class, ['genBoundaryId']);
         $mailer->method('genBoundaryId')->willReturn('d6cac6b0ea5c7b995176f68e6384201f');
         $mailer->setDate(new \DateTime('Tue, 30 Jun 2020 10:29:32 +0000'));
-
+        $mailer->setXMailer('PHP/7.4.7');
         $mailer->setSubject('subject');
         $mailer->setHTML('<p>html</p>', true);
         $mailer->setFrom('from@example.com', 'from');
@@ -265,6 +278,7 @@ class MailerTest extends TestCase
     {
         $transport = $this->createMock(TransportInterface::class);
         $mailer = new Mailer($transport);
+        $mailer->setXMailer('PHP/7.4.7');
         $mailer->setTo('to@example.com', 'to');
         $this->assertEquals('to@example.com', $mailer->getToEmail());
         $this->assertEquals('to', $mailer->getToName());
@@ -275,7 +289,7 @@ class MailerTest extends TestCase
         $mailer = $this->createPartialMock(Mailer::class, ['genBoundaryId']);
         $mailer->method('genBoundaryId')->willReturn('d6cac6b0ea5c7b995176f68e6384201f');
         $mailer->setDate(new \DateTime('Tue, 30 Jun 2020 10:29:32 +0000'));
-
+        $mailer->setXMailer('PHP/7.4.7');
         $mailer->setSubject('邮件标题');
         $mailer->setHTML('<p>html</p>', true);
         $mailer->setFrom('from@example.com', '发件人');
@@ -297,7 +311,7 @@ class MailerTest extends TestCase
         $mailer = $this->createPartialMock(Mailer::class, ['genBoundaryId']);
         $mailer->method('genBoundaryId')->willReturn('d6cac6b0ea5c7b995176f68e6384201f');
         $mailer->setDate(new \DateTime('Tue, 30 Jun 2020 10:29:32 +0000'));
-
+        $mailer->setXMailer('PHP/7.4.7');
         $mailer->setSubject('邮件标题');
         $mailer->setHTML('<p>html</p>', true);
         $mailer->setFrom('from@example.com', '发件人');
@@ -320,6 +334,7 @@ class MailerTest extends TestCase
         $transport = $this->createMock(TransportInterface::class);
         $mailer = new Mailer($transport);
 
+        $mailer->setXMailer('PHP/7.4.7');
         $mailer->setSubject('邮件标题');
         $mailer->setHTML('<p>html</p>', true);
         $mailer->setFrom('from@example.com', '发件人');

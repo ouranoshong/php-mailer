@@ -84,6 +84,11 @@ class Mailer
     protected $messageId;
 
     /**
+     * @var string
+     */
+    protected $xMailer;
+
+    /**
      * @var DateTimeImmutable
      */
     protected $date;
@@ -217,6 +222,12 @@ class Mailer
         return $this;
     }
 
+    public function setXMailer($xMailer)
+    {
+        $this->xMailer = $xMailer;
+        return $this;
+    }
+
     public function attach($attachment, $inlineFileName = '')
     {
         $basename = $inlineFileName ?: basename($attachment);
@@ -299,7 +310,9 @@ class Mailer
             $headers .= 'MessagePart-ID: ' . $this->messageId . $eol;
         }
 
-        $headers .= 'X-Mailer: PHP/' . PHP_VERSION . $eol;
+        if ($this->xMailer) {
+            $headers .= 'X-Mailer: ' . $this->xMailer . $eol;
+        }
 
         if (is_array($this->toEmail)) {
             $toEmails = [];
