@@ -21,7 +21,7 @@ class SMTPTransportTest extends TestCase
     {
         return [
             'host' => '127.0.0.1',
-            'port' => 25,
+            'port' => 2500,
             'username' => 'username',
             'password' => 'password'
         ];
@@ -59,7 +59,7 @@ class SMTPTransportTest extends TestCase
             array_merge(
                 $this->getSTMPConfig(),
                 [
-                    'port' => 465,
+                    'port' => 4650,
                     'encryption' => 'ssl',
                     'context' => [
                         'ssl' => [
@@ -89,7 +89,7 @@ class SMTPTransportTest extends TestCase
             array_merge(
                 $this->getSTMPConfig(),
                 [
-                    'port' => 587,
+                    'port' => 5870,
                     'starttls' => true,
                     'encryption' => 'tls',
                     'context' => [
@@ -136,7 +136,7 @@ class SMTPTransportTest extends TestCase
             array_merge(
                 $this->getSTMPConfig(),
                 [
-                    'port' => 465,
+                    'port' => 4650,
                     'encryption' => 'ssl',
                     'context' => [
                         'ssl' => [
