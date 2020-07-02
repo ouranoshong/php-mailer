@@ -1,5 +1,7 @@
 language: php
-sudo: false
+dist: focal
+os: linux
+
 cache:
   directories:
     - $HOME/.composer/cache
@@ -9,22 +11,15 @@ php:
   - 7.4
   - hvvm
 
-matrix:
-  fast_finish: true
-
 # We only build pushes to master and pull requests
 branches:
   only:
     - master
 
-env:
-  - NODE_RELEASE=12.x
-  - COVERALLS_RELEASE=v2.2.0
-
 before_install:
   # Disable XDebug speeds up composer
   - phpenv config-rm xdebug.ini || return 0
-  - rm -rf ~/.nvm - curl -sL "https://deb.nodesource.com/setup_${NODE_RELEASE}" | sudo -E bash -
+  - rm -rf ~/.nvm - curl -sL "https://deb.nodesource.com/setup_12.x" | sudo -E bash -
   - apt-get install -y nodejs
 
 install:
@@ -44,5 +39,5 @@ script:
   - ./vendor/bin/phpunit -c phpunit.xml.dist --coverage-clover build/logs/clover.xml
 
 after_success:
-  - travis_retry wget https://github.com/satooshi/php-coveralls/releases/download/${COVERALLS_RELEASE}/coveralls.phar
+  - travis_retry wget https://github.com/satooshi/php-coveralls/releases/download/v2.2.0/coveralls.phar
   - travis_retry php coveralls.phar -v
