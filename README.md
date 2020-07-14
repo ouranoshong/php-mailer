@@ -12,6 +12,8 @@ composer require ouranoshong/php-mailer
 ```
 
 ### Usage
+
+#### Simple usage demo
 ```php
 <?php
 
@@ -21,9 +23,7 @@ $transport = new \Ouranoshong\Mailer\SMTPTransport(
         'port' => 465,
         'encryption' => 'ssl',
         'username' => 'your username',
-        'password' => 'your password',
-        
-        'httpProxy' => 'http://proxy.com:8080' //user http proxy
+        'password' => 'your password'
     ]
 );
 
@@ -34,4 +34,26 @@ $mailer->setFrom('from@example.com')
     ->setText('email from php mailer')
     ->send();
 
+```
+
+#### Http proxy usage demo
+```php
+$transport = new \Ouranoshong\Mailer\SMTPTransport(
+    [
+        'host' => 'smtp.gmail.com',
+        'port' => 465,
+        'encryption' => 'ssl',
+        'username' => 'your username',
+        'password' => 'your password',
+        
+        'httpProxy' => 'http://proxy.com:8080' //use http proxy
+    ]
+);
+
+$mailer = new \Ouranoshong\Mailer\Mailer($transport);
+$mailer->setFrom('from@example.com')
+    ->setTo('to@example.com')
+    ->setSubject('subject')
+    ->setText('email from php mailer')
+    ->send();
 ```
