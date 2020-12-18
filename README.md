@@ -1,6 +1,6 @@
 # php-mailer
 [![Latest Stable Version](https://poser.pugx.org/ouranoshong/php-mailer/v)](//packagist.org/packages/ouranoshong/php-mailer) [![Total Downloads](https://poser.pugx.org/ouranoshong/php-mailer/downloads)](//packagist.org/packages/ouranoshong/php-mailer) [![Latest Unstable Version](https://poser.pugx.org/ouranoshong/php-mailer/v/unstable)](//packagist.org/packages/ouranoshong/php-mailer) [![License](https://poser.pugx.org/ouranoshong/php-mailer/license)](//packagist.org/packages/ouranoshong/php-mailer)
-[![Build Status](https://travis-ci.org/ouranoshong/php-mailer.svg?branch=master)](https://travis-ci.org/ouranoshong/php-mailer)
+[![Build Status](https://www.travis-ci.com/ouranoshong/php-mailer.svg?branch=master)](https://www.travis-ci.com/ouranoshong/php-mailer)
 [![Coverage Status](https://coveralls.io/repos/github/ouranoshong/php-mailer/badge.svg?branch=master)](https://coveralls.io/github/ouranoshong/php-mailer?branch=master)
 
 send email with smtp (support http proxy)
