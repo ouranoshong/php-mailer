@@ -2,6 +2,7 @@
 
 namespace Ouranoshong\Tests\Mailer;
 
+use DateTime;
 use Ouranoshong\Mailer\Constant;
 use Ouranoshong\Mailer\Mailer;
 use Ouranoshong\Mailer\TransportInterface;
@@ -107,7 +108,7 @@ class MailerTest extends TestCase
         $mailer->setTo('to@example.com');
         $mailer->setSubject('subject');
         $mailer->setText('text');
-        $mailer->setDate(new \DateTime('Tue, 30 Jun 2020 06:26:07 +0000'));
+        $mailer->setDate(new DateTime('Tue, 30 Jun 2020 06:26:07 +0000'));
 
         $mime = $mailer->generateMime();
 
@@ -128,7 +129,7 @@ class MailerTest extends TestCase
         $mailer->setTo('to@example.com');
         $mailer->setSubject('subject');
         $mailer->setHTML('<p>html</p>');
-        $mailer->setDate(new \DateTime('Tue, 30 Jun 2020 06:26:07 +0000'));
+        $mailer->setDate(new DateTime('Tue, 30 Jun 2020 06:26:07 +0000'));
         $mime = $mailer->generateMime();
 
         $this->assertEquals(
@@ -148,7 +149,7 @@ class MailerTest extends TestCase
         $mailer->setTo('to@example.com');
         $mailer->setSubject('subject');
         $mailer->setText('text');
-        $mailer->setDate(new \DateTime('Tue, 30 Jun 2020 06:26:07 +0000'));
+        $mailer->setDate(new DateTime('Tue, 30 Jun 2020 06:26:07 +0000'));
         $mailer->attach(__DIR__ . '/fixtures/test.jpeg');
         $mime = $mailer->generateMime();
 
@@ -167,7 +168,7 @@ class MailerTest extends TestCase
         $mailer->setTo('to@example.com');
         $mailer->setSubject('subject');
         $mailer->setHTML('<p>html image <img src="test.jpeg" /></p>');
-        $mailer->setDate(new \DateTime('Tue, 30 Jun 2020 06:26:07 +0000'));
+        $mailer->setDate(new DateTime('Tue, 30 Jun 2020 06:26:07 +0000'));
         $mailer->attach(__DIR__ . '/fixtures/test.jpeg', 'test.jpeg');
         $mime = $mailer->generateMime();
 
@@ -186,7 +187,7 @@ class MailerTest extends TestCase
         $mailer->setTo('to@example.com');
         $mailer->setSubject('subject');
         $mailer->setHTML('<p>html image <img src="test.jpeg" /></p>', true);
-        $mailer->setDate(new \DateTime('Tue, 30 Jun 2020 06:26:07 +0000'));
+        $mailer->setDate(new DateTime('Tue, 30 Jun 2020 06:26:07 +0000'));
         $mailer->attach(__DIR__ . '/fixtures/test.jpeg', 'test.jpeg');
         $mime = $mailer->generateMime();
 
@@ -205,7 +206,7 @@ class MailerTest extends TestCase
         $mailer->setTo('to@example.com');
         $mailer->setSubject('subject');
         $mailer->setText('<p>html image <img src="test.jpeg" /></p>');
-        $mailer->setDate(new \DateTime('Tue, 30 Jun 2020 06:26:07 +0000'));
+        $mailer->setDate(new DateTime('Tue, 30 Jun 2020 06:26:07 +0000'));
         $mailer->attach(__DIR__ . '/fixtures/test.jpeg', 'test.jpeg');
         $mime = $mailer->generateMime();
 
@@ -224,7 +225,7 @@ class MailerTest extends TestCase
         $mailer->setTo('to@example.com');
         $mailer->setSubject('subject');
         $mailer->setHTML('<p>html image <img src="test.jpeg" /></p>', true);
-        $mailer->setDate(new \DateTime('Tue, 30 Jun 2020 06:26:07 +0000'));
+        $mailer->setDate(new DateTime('Tue, 30 Jun 2020 06:26:07 +0000'));
         $mime = $mailer->generateMime();
 
         $this->assertEquals(
@@ -237,7 +238,7 @@ class MailerTest extends TestCase
     {
         $mailer = $this->createPartialMock(Mailer::class, ['genBoundaryId']);
         $mailer->method('genBoundaryId')->willReturn('d6cac6b0ea5c7b995176f68e6384201f');
-        $mailer->setDate(new \DateTime('Tue, 30 Jun 2020 10:29:32 +0000'));
+        $mailer->setDate(new DateTime('Tue, 30 Jun 2020 10:29:32 +0000'));
         $mailer->setXMailer('PHP/7.4.7');
         $mailer->setSubject('subject');
         $mailer->setHTML('<p>html</p>', true);
@@ -288,7 +289,7 @@ class MailerTest extends TestCase
     {
         $mailer = $this->createPartialMock(Mailer::class, ['genBoundaryId']);
         $mailer->method('genBoundaryId')->willReturn('d6cac6b0ea5c7b995176f68e6384201f');
-        $mailer->setDate(new \DateTime('Tue, 30 Jun 2020 10:29:32 +0000'));
+        $mailer->setDate(new DateTime('Tue, 30 Jun 2020 10:29:32 +0000'));
         $mailer->setXMailer('PHP/7.4.7');
         $mailer->setSubject('邮件标题');
         $mailer->setHTML('<p>html</p>', true);
@@ -310,7 +311,7 @@ class MailerTest extends TestCase
     {
         $mailer = $this->createPartialMock(Mailer::class, ['genBoundaryId']);
         $mailer->method('genBoundaryId')->willReturn('d6cac6b0ea5c7b995176f68e6384201f');
-        $mailer->setDate(new \DateTime('Tue, 30 Jun 2020 10:29:32 +0000'));
+        $mailer->setDate(new DateTime('Tue, 30 Jun 2020 10:29:32 +0000'));
         $mailer->setXMailer('PHP/7.4.7');
         $mailer->setSubject('邮件标题');
         $mailer->setHTML('<p>html</p>', true);
@@ -345,14 +346,18 @@ class MailerTest extends TestCase
         $mailer->attach(__DIR__ . '/fixtures/test.jpeg', 'test.jpg');
         $mailer->setReplyTo('from@example.com');
 
-        $this->assertMatchesRegularExpression(
-            '/Date: \w+/',
-            $mailer->generateMime()['headers']
+        $this->assertTrue(
+            preg_match(
+                '/Date: \w+/',
+                $mailer->generateMime()['headers']
+            )
         );
 
-        $this->assertMatchesRegularExpression(
-            '/boundary="\w{32}"/',
-            $mailer->generateMime()['headers']
+        $this->assertTrue(
+            preg_match(
+                '/boundary="\w{32}"/',
+                $mailer->generateMime()['headers']
+            )
         );
     }
 }
