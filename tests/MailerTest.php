@@ -350,14 +350,14 @@ class MailerTest extends TestCase
             preg_match(
                 '/Date: \w+/',
                 $mailer->generateMime()['headers']
-            )
+            ) !== false
         );
 
         $this->assertTrue(
             preg_match(
                 '/boundary="\w{32}"/',
                 $mailer->generateMime()['headers']
-            )
+            ) !== false
         );
     }
 }
